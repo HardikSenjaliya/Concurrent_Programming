@@ -1,0 +1,168 @@
+==20057== Memcheck, a memory error detector
+==20057== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==20057== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==20057== Command: ./counter -t 8 -i 10 --lock pthread
+==20057== Parent PID: 5019
+==20057== 
+--20057-- 
+--20057-- Valgrind options:
+--20057--    --leak-check=full
+--20057--    --show-leak-kinds=all
+--20057--    --track-origins=yes
+--20057--    --verbose
+--20057--    --log-file=valgrind-out.txt
+--20057-- Contents of /proc/version:
+--20057--   Linux version 4.15.0-65-generic (buildd@lgw01-amd64-006) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #74-Ubuntu SMP Tue Sep 17 17:06:04 UTC 2019
+--20057-- 
+--20057-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--20057-- Page sizes: currently 4096, max supported 4096
+--20057-- Valgrind library directory: /usr/lib/valgrind
+--20057-- Reading syms from /home/hardyk/Documents/CU_Boulder/CP/Concurrent_Programming/Lab_2/Counter/counter
+--20057-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--20057--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--20057--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--20057--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--20057--   .. CRC is valid
+--20057-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--20057--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--20057--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--20057--    object doesn't have a symbol table
+--20057--    object doesn't have a dynamic symbol table
+--20057-- Scheduler: using generic scheduler lock implementation.
+--20057-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==20057== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20057-by-hardyk-on-???
+==20057== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20057-by-hardyk-on-???
+==20057== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20057-by-hardyk-on-???
+==20057== 
+==20057== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20057== don't want to do, unless you know exactly what you're doing,
+==20057== or are doing some strange experiment):
+==20057==   /usr/lib/valgrind/../../bin/vgdb --pid=20057 ...command...
+==20057== 
+==20057== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20057==   /path/to/gdb ./counter
+==20057== and then give GDB the following command
+==20057==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=20057
+==20057== --pid is optional if only one valgrind process is running
+==20057== 
+--20057-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--20057-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--20057-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--20057--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--20057--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--20057--    object doesn't have a symbol table
+--20057-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--20057--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--20057--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--20057--    object doesn't have a symbol table
+==20057== WARNING: new redirection conflicts with existing -- ignoring it
+--20057--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--20057--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--20057-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--20057-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--20057-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+--20057--    object doesn't have a symbol table
+--20057-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.27.so
+--20057--   Considering /usr/lib/debug/.build-id/28/c6aade70b2d40d1f0f3d0a1a0cad1ab816448f.debug ..
+--20057--   .. build-id is valid
+--20057-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--20057--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--20057--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--20057--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--20057--   .. CRC is valid
+--20057-- Reading syms from /lib/x86_64-linux-gnu/libm-2.27.so
+--20057--   Considering /lib/x86_64-linux-gnu/libm-2.27.so ..
+--20057--   .. CRC mismatch (computed 7feae033 wanted b29b2508)
+--20057--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.27.so ..
+--20057--   .. CRC is valid
+--20057-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--20057--    object doesn't have a symbol table
+--20057-- REDIR: 0x5482c70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482f50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x54847c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482de0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482c10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482d40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x54a00f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482fa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x54830e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x54817c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5481c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x548c6c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482ff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482be0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x54a0eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482f20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5482ef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x54847f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x5483040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--20057-- REDIR: 0x55723c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--20057-- REDIR: 0x547b070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--20057-- REDIR: 0x5572590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--20057-- REDIR: 0x556eba0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4c35e00 (bcmp)
+--20057-- REDIR: 0x554dd60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+--20057-- REDIR: 0x5571fa0 (libc.so.6:__strchr_avx2) redirected to 0x4c32950 (index)
+--20057-- REDIR: 0x55721d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--20057-- REDIR: 0x5572ab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+--20057-- REDIR: 0x5569510 (libc.so.6:__strncmp_sse42) redirected to 0x4c33570 (__strncmp_sse42)
+--20057-- REDIR: 0x547e030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+==20057== Thread 2:
+==20057== Jump to the invalid address stated on the next line
+==20057==    at 0x0: ???
+==20057==    by 0x51CC6DA: start_thread (pthread_create.c:463)
+==20057==    by 0x550588E: clone (clone.S:95)
+==20057==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==20057== 
+==20057== 
+==20057== Process terminating with default action of signal 11 (SIGSEGV)
+==20057==  Bad permissions for mapped region at address 0x0
+==20057==    at 0x0: ???
+==20057==    by 0x51CC6DA: start_thread (pthread_create.c:463)
+==20057==    by 0x550588E: clone (clone.S:95)
+--20057-- REDIR: 0x547b950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+==20057== 
+==20057== HEAP SUMMARY:
+==20057==     in use at exit: 864 bytes in 3 blocks
+==20057==   total heap usage: 5 allocs, 2 frees, 74,592 bytes allocated
+==20057== 
+==20057== Searching for pointers to 3 not-freed blocks
+==20057== Checked 25,297,552 bytes
+==20057== 
+==20057== Thread 1:
+==20057== 864 bytes in 3 blocks are possibly lost in loss record 1 of 1
+==20057==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20057==    by 0x40134A6: allocate_dtv (dl-tls.c:286)
+==20057==    by 0x40134A6: _dl_allocate_tls (dl-tls.c:530)
+==20057==    by 0x51CD227: allocate_stack (allocatestack.c:627)
+==20057==    by 0x51CD227: pthread_create@@GLIBC_2.2.5 (pthread_create.c:644)
+==20057==    by 0x109251: spawn_threads(int, int) (counter.cpp:94)
+==20057==    by 0x1098B9: main (counter.cpp:244)
+==20057== 
+==20057== LEAK SUMMARY:
+==20057==    definitely lost: 0 bytes in 0 blocks
+==20057==    indirectly lost: 0 bytes in 0 blocks
+==20057==      possibly lost: 864 bytes in 3 blocks
+==20057==    still reachable: 0 bytes in 0 blocks
+==20057==         suppressed: 0 bytes in 0 blocks
+==20057== 
+==20057== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==20057== 
+==20057== 1 errors in context 1 of 2:
+==20057== Thread 2:
+==20057== Jump to the invalid address stated on the next line
+==20057==    at 0x0: ???
+==20057==    by 0x51CC6DA: start_thread (pthread_create.c:463)
+==20057==    by 0x550588E: clone (clone.S:95)
+==20057==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==20057== 
+==20057== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
