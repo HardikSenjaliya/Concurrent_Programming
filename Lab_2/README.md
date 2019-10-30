@@ -1,6 +1,6 @@
 
-#Concurrent Programming
-#Lab_2
+# Concurrent Programming
+# Lab_2
 
 **Parallelization Strategies**
 
